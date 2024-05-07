@@ -1,12 +1,15 @@
+import { Route, Routes } from "react-router-dom";
+import RegisterUser from "./pages/RegisterUser";
+import LoginUser from "./pages/LoginUser";
 
 function App() {
   return (
-    <div>
-      <h1 className="text-3xl font-bold underline">
-        Firebase Tutorial
-      </h1>
-      <button className=" border-black border-2 p-2 m-3 hover:bg-black hover:text-white duration-300">Create a New User</button>
-    </div>
+    <Routes>
+      <Route path="/" element={<h1>main</h1>} />
+      <Route path="/login" element={<LoginUser/>} />
+      <Route path="/register" element={<RegisterUser />} />
+
+    </Routes>
   );
 }
 
