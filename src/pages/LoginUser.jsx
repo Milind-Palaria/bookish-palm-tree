@@ -1,18 +1,26 @@
-import React, { useState } from 'react'
+import React, { useState ,useEffect} from 'react'
 import { useFirebase } from '../context/Firebase'
+import { useNavigate } from 'react-router-dom';
 
 
 const LoginUser = () => {
+    const firebase = useFirebase();
+    const navigate=useNavigate();
+
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
-
     const createUser = async () => {
-       const result= await firebase.signInUser(email, pass)
-       console.log("SUCCESS");
-       console.log(result)
+        const result = await firebase.signInUser(email, pass)
+        //    console.log("SUCCESS");
+        //    console.log(result)
     }
-
-    const firebase = useFirebase();
+    useEffect(() => {
+      if(firebase.isLoggedIn){
+        navigate('/');
+      }
+    }, [firebase,navigate])
+    
+    console.log(firebase)
     // console.log(firebase);
     return (
         <div>

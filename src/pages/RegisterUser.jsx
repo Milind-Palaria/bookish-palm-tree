@@ -10,7 +10,11 @@ const RegisterUser = () => {
        const result= await firebase.signUpUser(email, pass)
        console.log("SUCCESS",result);
     }
-
+    const createUserWithGoogle = async () => {
+        const result= await firebase.signInWithGoogle()
+        console.log("SUCCESS",result);
+     }
+ 
     const firebase = useFirebase();
     // console.log(firebase);
     return (
@@ -20,6 +24,10 @@ const RegisterUser = () => {
             <p>password</p><input type="password" placeholder='enter password' onChange={(e) => { setPass(e.target.value) }} value={pass} />
             <br />
             <button onClick={createUser}>Create User</button>
+            <hr />
+            <h1>OR</h1>
+            <hr />
+            <button onClick={createUserWithGoogle}>Google</button>
         </div>
     )
 }
