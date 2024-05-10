@@ -20,7 +20,7 @@ const LoginUser = () => {
       }
     }, [firebase,navigate])
     
-    console.log(firebase)
+    // console.log(firebase)
     // console.log(firebase);
     return (
         <div>
