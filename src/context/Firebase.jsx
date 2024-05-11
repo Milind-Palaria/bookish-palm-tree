@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { initializeApp } from "firebase/app";
 import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
-import { getFirestore, collection, addDoc } from "firebase/firestore"
+import { getFirestore, collection, addDoc, getDocs } from "firebase/firestore"
 import { getStorage, ref, uploadBytes } from "firebase/storage"
 
 
@@ -54,18 +54,28 @@ export const FirebaseProvider = (props) => {
         const uploadResult = await uploadBytes(imageRef, cover)
         return await addDoc(collection(firestore, "books"), {
             name,
-            isbn, 
-            price, 
-            imageURL: uploadResult.ref.fullPath, 
-            userID: user.uid, 
-            userEmail: user.email, 
-            displayName: user.displayName, 
+            isbn,
+            price,
+            imageURL: uploadResult.ref.fullPath,
+            userID: user.uid,
+            userEmail: user.email,
+            displayName: user.displayName,
             photoURL: user.photoURL,
         })
     }
 
+    const listAllBooks = () => {
+        return getDocs(collection(firestore, "books"));
+    }
+
     return (
-        <FirebaseContext.Provider value={{ signUpUser, signInUser, signInWithGoogle, isLoggedIn, handleNewListing }}>
+        <FirebaseContext.Provider value={{ signUpUser, 
+        signInUser, 
+        signInWithGoogle, 
+        isLoggedIn, 
+        handleNewListing,
+        listAllBooks }}>
+
             {props.children}
         </FirebaseContext.Provider>
     )
