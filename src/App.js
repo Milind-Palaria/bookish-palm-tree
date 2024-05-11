@@ -3,16 +3,20 @@ import RegisterUser from "./pages/RegisterUser";
 import LoginUser from "./pages/LoginUser";
 import List from "./pages/List";
 import Home from "./pages/Home";
+import Nav from "./components/Nav";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home/>} />
-      <Route path="/login" element={<LoginUser/>} />
-      <Route path="/register" element={<RegisterUser />} />
-      <Route path="/book/list" element={<List/>} />
+    <div>
+      <Nav />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<LoginUser />} />
+        <Route path="/register" element={<RegisterUser />} />
+        <Route path="/book/list" element={<List />} />
 
-    </Routes>
+      </Routes>
+    </div>
   );
 }
 
