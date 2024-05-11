@@ -12,12 +12,12 @@ const Home = () => {
 
 
     return (
-        <div>
-            <h1 className=" text-8xl">main</h1>
-            <div>
+        <div className='ml-10 mt-10'>
+            <h1 className="text-8xl mb-10">main</h1>
+            <div className="flex gap-10 items-center justify-center">
                 {
                     books && books.map((book) => (
-                        <Card {...book.data()}/>
+                        <Card key={book.id} {...book.data()} />
                     ))
                 }
             </div>
