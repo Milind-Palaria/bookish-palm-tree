@@ -12,7 +12,7 @@ const LoginUser = () => {
     const createUser = async () => {
         const result = await firebase.signInUser(email, pass)
         //    console.log("SUCCESS");
-        //    console.log(result)
+           console.log(result)
     }
     useEffect(() => {
       if(firebase.isLoggedIn){
@@ -23,7 +23,8 @@ const LoginUser = () => {
     // console.log(firebase)
     // console.log(firebase);
     return (
-        <div>
+        <div className=' ml-10 mt-10'>
+          <h1 className=" text-8xl">Login</h1>
             <p>email</p><input type="text" placeholder='enter email' onChange={(e) => { setEmail(e.target.value) }} value={email} />
             <br />
             <p>password</p><input type="password" placeholder='enter password' onChange={(e) => { setPass(e.target.value) }} value={pass} />

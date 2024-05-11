@@ -18,7 +18,9 @@ const RegisterUser = () => {
     const firebase = useFirebase();
     // console.log(firebase);
     return (
-        <div>
+        <div className=' ml-10 mt-10'>
+            <h1 className=" text-8xl">register</h1>
+            <br />
             <p>email</p><input type="text" placeholder='enter email' onChange={(e) => { setEmail(e.target.value) }} value={email} />
             <br />
             <p>password</p><input type="password" placeholder='enter password' onChange={(e) => { setPass(e.target.value) }} value={pass} />
