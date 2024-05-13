@@ -46,7 +46,7 @@ export const FirebaseProvider = (props) => {
         signInWithPopup(firebaseAuth, googleProvider);
     }
 
-    // console.log(user);
+    console.log(user);
 
 
     const handleNewListing = async (name, isbn, price, cover) => {
