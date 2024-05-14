@@ -17,7 +17,7 @@ const Home = () => {
             <div className="flex gap-10 items-center justify-center">
                 {
                     books && books.map((book) => (
-                        <Card key={book.id} id={book.id} {...book.data()} />
+                        <Card link={`/book/view/${book.id}`} key={book.id} id={book.id} {...book.data()} />
                     ))
                 }
             </div>

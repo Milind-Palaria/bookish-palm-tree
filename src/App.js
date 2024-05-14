@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Nav from "./components/Nav";
 import BookDetails from "./pages/BookDetails";
 import ViewOrders from "./pages/ViewOrders";
+import ViewOrderDetails from "./pages/ViewOrderDetails";
 
 function App() {
   return (
@@ -18,6 +19,8 @@ function App() {
         <Route path="/book/list" element={<List />} />
         <Route path="/book/view/:bookId" element={<BookDetails/>} />
         <Route path="/book/orders" element={<ViewOrders/>} />
+        <Route path="/book/orders/:bookId" element={<ViewOrderDetails/>} />
+
 
       </Routes>
     </div>

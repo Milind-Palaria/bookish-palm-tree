@@ -19,7 +19,7 @@ const ViewOrders = () => {
         <div>
             {
                 books.map((book) => (
-                    <Card key={book.id} id={book.id} {...book.data()} />)
+                    <Card link={`/book/orders/${book.id}`} key={book.id} id={book.id} {...book.data()} />)
                 )
             }
         </div>
