@@ -4,6 +4,7 @@ import LoginUser from "./pages/LoginUser";
 import List from "./pages/List";
 import Home from "./pages/Home";
 import Nav from "./components/Nav";
+import BookDetails from "./pages/BookDetails";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/login" element={<LoginUser />} />
         <Route path="/register" element={<RegisterUser />} />
         <Route path="/book/list" element={<List />} />
+        <Route path="/book/view/:bookId" element={<BookDetails/>} />
 
       </Routes>
     </div>
