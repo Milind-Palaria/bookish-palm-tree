@@ -7,6 +7,8 @@ const BookDetails = () => {
   const firebase = useFirebase();
   const [data, setData] = useState(null);
   const [url, setURL] = useState(null)
+  const [qty, setQty] = useState(1)
+
 
   useEffect(() => {
     firebase.getBookById(params.bookId).then(value => setData(value.data()))
@@ -17,8 +19,8 @@ const BookDetails = () => {
       const imageURL = data.imageURL;
       firebase.getImageURL(imageURL).then((url) => setURL(url))
     }
-    console.log(data)
-  }, [])
+  }, [data])
+  console.log(data)
 
   if (data == null) return <h1>Lodaing...</h1>
 
@@ -32,6 +34,7 @@ const BookDetails = () => {
       <p>ISBN : {data.isbn}</p>
       <p>Name: {data.displayName}</p>
       <p>Email : {data.userEmail}</p>
+      <input type="number" placeholder='quantity' onChange={(e)=>setQty(e.target.value)} value={qty}  />
       <button>Buy Now</button>
 
 

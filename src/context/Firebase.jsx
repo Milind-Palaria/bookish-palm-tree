@@ -75,6 +75,15 @@ export const FirebaseProvider = (props) => {
         const result = await getDoc(docRef)
         return result;
     }
+    const placeOrder = async (bookId)=>{
+        const collectionRef = collection(firestore,"books",bookId,"orders")
+        const result = await addDoc(collectionRef,{
+            userID: user.uid,
+            userEmail: user.email,
+            displayName: user.displayName,
+            photoURL: user.photoURL,
+        })
+    }
 
     return (
         <FirebaseContext.Provider value={{ signUpUser, 
@@ -84,7 +93,8 @@ export const FirebaseProvider = (props) => {
         handleNewListing,
         listAllBooks,
         getImageURL,
-        getBookById }}>
+        getBookById ,
+        placeOrder}}>
 
             {props.children}
         </FirebaseContext.Provider>
