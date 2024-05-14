@@ -4,25 +4,26 @@ import Card from '../components/Card'
 
 const ViewOrders = () => {
 
-    const firebase= useFirebase()
-    const [books,setBooks]= useState([])
+    const firebase = useFirebase()
+    const [books, setBooks] = useState([])
 
     useEffect(() => {
-      firebase.fetchMyBooks().then((books)=>setBooks(books))
-    
+        if (firebase.isLoggedIn)
+            firebase.fetchMyBooks(firebase.user.uid)?.then((books) => setBooks(books.docs))
     }, [firebase])
-    
+    console.log(books);
 
-  return (
-    <div>
-        {
-            books.map(book=>
+    if (!firebase.isLoggedIn) return <h1>Please Log In</h1>
 
-                <Card key={book.id} id={book.id} {...book.data()}/>
-            )
-        }
-    </div>
-  )
+    return (
+        <div>
+            {
+                books.map((book) => (
+                    <Card key={book.id} id={book.id} {...book.data()} />)
+                )
+            }
+        </div>
+    )
 }
 
 export default ViewOrders

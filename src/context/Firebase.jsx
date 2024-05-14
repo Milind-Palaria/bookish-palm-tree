@@ -84,11 +84,12 @@ export const FirebaseProvider = (props) => {
             photoURL: user.photoURL, 
             qty: Number(qty)
         })
+        return result;
     }
 
-    const fetchMyBooks = async ()=>{
+    const fetchMyBooks = async (userId)=>{
         const collectionRef=collection(firestore,"books")
-        const q = query(collectionRef,where(userID,"==",user))
+        const q = query(collectionRef,where("userID","==",userId))
 
         const result = await getDocs(q)
         return result
@@ -105,7 +106,8 @@ export const FirebaseProvider = (props) => {
             getImageURL,
             getBookById,
             placeOrder,
-            fetchMyBooks
+            fetchMyBooks,
+            user
         }}>
 
             {props.children}
