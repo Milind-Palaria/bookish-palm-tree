@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { initializeApp } from "firebase/app";
 import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
-import { getFirestore, collection, addDoc, getDocs, doc, getDoc } from "firebase/firestore"
+import { getFirestore, collection, addDoc, getDocs, doc, getDoc, query, where } from "firebase/firestore"
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage"
 
 
@@ -86,6 +86,14 @@ export const FirebaseProvider = (props) => {
         })
     }
 
+    const fetchMyBooks = async ()=>{
+        const collectionRef=collection(firestore,"books")
+        const q = query(collectionRef,where(userID,"==",user))
+
+        const result = await getDocs(q)
+        return result
+    }
+
     return (
         <FirebaseContext.Provider value={{
             signUpUser,
@@ -96,7 +104,8 @@ export const FirebaseProvider = (props) => {
             listAllBooks,
             getImageURL,
             getBookById,
-            placeOrder
+            placeOrder,
+            fetchMyBooks
         }}>
 
             {props.children}
