@@ -67,34 +67,37 @@ export const FirebaseProvider = (props) => {
     const listAllBooks = () => {
         return getDocs(collection(firestore, "books"));
     }
-    const getImageURL=(path)=>{
-        return getDownloadURL(ref(storage,path))
+    const getImageURL = (path) => {
+        return getDownloadURL(ref(storage, path))
     }
-    const getBookById=async (id)=>{
-        const docRef = doc(firestore,"books",id);
+    const getBookById = async (id) => {
+        const docRef = doc(firestore, "books", id);
         const result = await getDoc(docRef)
         return result;
     }
-    const placeOrder = async (bookId)=>{
-        const collectionRef = collection(firestore,"books",bookId,"orders")
-        const result = await addDoc(collectionRef,{
+    const placeOrder = async (bookId, qty) => {
+        const collectionRef = collection(firestore, "books", bookId, "orders")
+        const result = await addDoc(collectionRef, {
             userID: user.uid,
             userEmail: user.email,
             displayName: user.displayName,
-            photoURL: user.photoURL,
+            photoURL: user.photoURL, 
+            qty: Number(qty)
         })
     }
 
     return (
-        <FirebaseContext.Provider value={{ signUpUser, 
-        signInUser, 
-        signInWithGoogle, 
-        isLoggedIn, 
-        handleNewListing,
-        listAllBooks,
-        getImageURL,
-        getBookById ,
-        placeOrder}}>
+        <FirebaseContext.Provider value={{
+            signUpUser,
+            signInUser,
+            signInWithGoogle,
+            isLoggedIn,
+            handleNewListing,
+            listAllBooks,
+            getImageURL,
+            getBookById,
+            placeOrder
+        }}>
 
             {props.children}
         </FirebaseContext.Provider>

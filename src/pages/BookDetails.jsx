@@ -22,6 +22,11 @@ const BookDetails = () => {
   }, [data])
   console.log(data)
 
+  const placeOrder = async ()=>{
+    const result = await firebase.placeOrder(params.bookId, qty);
+    console.log("Order Placed", result)
+  }
+
   if (data == null) return <h1>Lodaing...</h1>
 
   return (
@@ -35,7 +40,7 @@ const BookDetails = () => {
       <p>Name: {data.displayName}</p>
       <p>Email : {data.userEmail}</p>
       <input type="number" placeholder='quantity' onChange={(e)=>setQty(e.target.value)} value={qty}  />
-      <button>Buy Now</button>
+      <button onClick={placeOrder}>Buy Now</button>
 
 
     </div>
