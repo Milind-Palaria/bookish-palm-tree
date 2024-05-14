@@ -94,6 +94,12 @@ export const FirebaseProvider = (props) => {
         const result = await getDocs(q)
         return result
     }
+    
+    const getOrders=async(bookId)=>{
+        const collectionRef=collection(firestore,"books",bookId,"orders")
+        const result = await getDocs(collectionRef)
+        return result
+    }
 
     return (
         <FirebaseContext.Provider value={{
@@ -107,7 +113,8 @@ export const FirebaseProvider = (props) => {
             getBookById,
             placeOrder,
             fetchMyBooks,
-            user
+            user,
+            getOrders
         }}>
 
             {props.children}
