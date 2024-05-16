@@ -17,14 +17,11 @@ function App() {
         <Route path="/login" element={<LoginUser />} />
         <Route path="/register" element={<RegisterUser />} />
         <Route path="/book/list" element={<List />} />
-        <Route path="/book/view/:bookId" element={<BookDetails/>} />
-        <Route path="/book/orders" element={<ViewOrders/>} />
-        <Route path="/book/orders/:bookId" element={<ViewOrderDetails/>} />
-
-
+        <Route path="/book/view/:bookId" element={<BookDetails />} />
+        <Route path="/book/orders" element={<ViewOrders />} />
+        <Route path="/bookdd/orders/:bookId" element={<ViewOrderDetails />} />
       </Routes>
     </div>
   );
 }
-
 export default App;
