@@ -8,6 +8,8 @@ import BookDetails from "./pages/BookDetails";
 import ViewOrders from "./pages/ViewOrders";
 import ViewOrderDetails from "./pages/ViewOrderDetails";
 import { useEffect } from "react";
+import { messaging } from "./context/Firebase";
+import { getToken } from "firebase/messaging";
 
 function App() {
 
@@ -15,6 +17,8 @@ function App() {
     const permission = await Notification.requestPermission()
     if (permission === 'granted') {
       //Generate TOken
+      const token = await getToken(messaging,{vapidKey:"BP44b81S2bMSL6fFe_BSX0GdBfheRq3M_FNg30KR8Sy7xin4E5SF2bJqHudtkuucRur45tCasns_Jo1CRMNniss"})
+      console.log("Token Generated", token)
     }
     else if (permission === 'denied') {
       alert('You have blocked notifications')

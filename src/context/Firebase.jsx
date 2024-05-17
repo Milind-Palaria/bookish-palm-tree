@@ -21,7 +21,7 @@ const firebaseApp = initializeApp(firebaseConfig);
 const firebaseAuth = getAuth(firebaseApp);
 const firestore = getFirestore(firebaseApp);
 const storage = getStorage(firebaseApp)
-const messaging = getMessaging(firebaseApp);
+export const messaging = getMessaging(firebaseApp);
 
 
 export const useFirebase = () => useContext(FirebaseContext);
