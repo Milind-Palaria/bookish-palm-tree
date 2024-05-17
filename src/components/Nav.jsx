@@ -12,7 +12,7 @@ const Nav = () => {
 <NavLink to="/book/list">List</NavLink>
 <NavLink to="/book/orders">View Order</NavLink>
 {/* <NavLink to="/book/orders">View Order</NavLink> */}
-<button onClick={logOutHandler}>Log Out</button>
+{/* <button onClick={logOutHandler}>Log Out</button> */}
 
 
       </div>
