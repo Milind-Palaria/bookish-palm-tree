@@ -3,7 +3,7 @@ import { initializeApp } from "firebase/app";
 import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { getFirestore, collection, addDoc, getDocs, doc, getDoc, query, where } from "firebase/firestore"
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage"
-import { getMessaging } from "firebase/messaging";
+// import { getMessaging } from "firebase/messaging";
 
 
 const FirebaseContext = createContext(null);
@@ -21,7 +21,7 @@ const firebaseApp = initializeApp(firebaseConfig);
 const firebaseAuth = getAuth(firebaseApp);
 const firestore = getFirestore(firebaseApp);
 const storage = getStorage(firebaseApp)
-export const messaging = getMessaging(firebaseApp);
+// const messaging = getMessaging(firebaseApp);
 
 
 export const useFirebase = () => useContext(FirebaseContext);
