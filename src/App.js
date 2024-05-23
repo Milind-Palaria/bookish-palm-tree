@@ -10,6 +10,8 @@ import ViewOrderDetails from "./pages/ViewOrderDetails";
 import { useEffect } from "react";
 import { messaging } from "./context/Firebase";
 import { getToken } from "firebase/messaging";
+import videoBg from "./assests/gradient-1.mp4"
+import BgGradient from "./assests/g3.jpg"
 
 function App() {
 
@@ -30,7 +32,9 @@ function App() {
   // }, [])
 
   return (
-    <div>
+    <div className=" m-0 bg-[#000000] w-full h-[100vh]">
+      {/* <video src={videoBg} autoPlay muted loop className=" fixed z-[-1] object-cover h-[100vh] w-full"/> */}
+      {/* <img src={BgGradient} className="fixed z-[-1] object-cover h-[100vh] w-full"/> */}
       <Nav />
       <Routes>
         <Route path="/" element={<Home />} />
