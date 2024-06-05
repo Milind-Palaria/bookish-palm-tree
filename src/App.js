@@ -32,7 +32,7 @@ function App() {
   // }, [])
 
   return (
-    <div className=" m-0 bg-[#000000] w-full h-[100vh]">
+    <div className="m-0">
       {/* <video src={videoBg} autoPlay muted loop className=" fixed z-[-1] object-cover h-[100vh] w-full"/> */}
       {/* <img src={BgGradient} className="fixed z-[-1] object-cover h-[100vh] w-full"/> */}
       <Nav />

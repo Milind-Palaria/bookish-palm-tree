@@ -12,7 +12,12 @@ const Home = () => {
 
     return (
         <div>
-            <h1 className="text-8xl mb-10">main</h1>
+            {/* <h1 className="text-8xl mb-10">main</h1> */}
+            <div className="h-screen text-[9rem] text-white bg-black ">
+                <h1>Bookish</h1>
+                <h1>Palm</h1>
+                <h1>Tree</h1>
+            </div>
             <div className="flex gap-10 items-center justify-center">
                 {
                     books && books.map((book) => (
