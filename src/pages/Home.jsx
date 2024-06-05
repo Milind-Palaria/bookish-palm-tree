@@ -13,10 +13,10 @@ const Home = () => {
     return (
         <div>
             {/* <h1 className="text-8xl mb-10">main</h1> */}
-            <div className="h-screen text-[9rem] text-white bg-black ">
-                <h1>Bookish</h1>
-                <h1>Palm</h1>
-                <h1>Tree</h1>
+            <div className="h-screen text-[9rem] text-white bg-black lobster-regular flex justify-around underline">
+                <h1 className=" translate-y-5">Bookish</h1>
+                <h1 className=" translate-y-5">Palm</h1>
+                <h1 className=" translate-y-5 ">Tree .</h1>
             </div>
             <div className="flex gap-10 items-center justify-center">
                 {
