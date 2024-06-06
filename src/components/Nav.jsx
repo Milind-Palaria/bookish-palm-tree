@@ -4,7 +4,7 @@ import logo from "../assests/bookish-logo.png"
 
 const Nav = () => {
   return (
-    <div className='fixed w-full top-0 p-2 flex justify-center backdrop-blur-md bg-white/0 text-white'>
+    <div className=' sticky bg-black w-full top-0 p-2 flex justify-center backdrop-blur-md text-white'>
       {/* <NavLink to="/"><img src={logo} alt="logo" className=' w-24'/></NavLink> */}
       {/* <NavLink to="/">
         <div>
@@ -13,12 +13,12 @@ const Nav = () => {
         </div>
         </NavLink> */}
 
-      <div className='flex gap-10'>
+      <div className='flex gap-20 underline w-1/2 justify-center text-center '>
 
-        <NavLink to="/register">Register</NavLink>
-        <NavLink to="/login">login</NavLink>
-        <NavLink to="/book/list">List</NavLink>
-        <NavLink to="/book/orders">View Order</NavLink>
+        <NavLink to="/register" className='hover:tracking-widest duration-300 w-1/4'>Register</NavLink>
+        <NavLink to="/login"  className='hover:tracking-widest duration-300  w-1/4' >login</NavLink>
+        <NavLink to="/book/list"  className='hover:tracking-widest duration-300  w-1/4' >List</NavLink>
+        <NavLink to="/book/orders"  className='hover:tracking-widest duration-300  w-1/4' >View Order</NavLink>
         {/* <NavLink to="/book/orders">View Order</NavLink> */}
         {/* <button onClick={logOutHandler}>Log Out</button> */}
 
