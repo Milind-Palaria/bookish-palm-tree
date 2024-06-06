@@ -16,7 +16,7 @@ const Nav = () => {
       <div className='flex gap-20 underline w-1/2 justify-center text-center '>
 
         <NavLink to="/register" className='hover:tracking-widest duration-300 w-1/4'>Register</NavLink>
-        <NavLink to="/login"  className='hover:tracking-widest duration-300  w-1/4' >login</NavLink>
+        <NavLink to="/login"  className='hover:tracking-widest duration-300  w-1/4' >Login</NavLink>
         <NavLink to="/book/list"  className='hover:tracking-widest duration-300  w-1/4' >List</NavLink>
         <NavLink to="/book/orders"  className='hover:tracking-widest duration-300  w-1/4' >View Order</NavLink>
         {/* <NavLink to="/book/orders">View Order</NavLink> */}

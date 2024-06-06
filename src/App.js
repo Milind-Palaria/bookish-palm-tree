@@ -12,6 +12,7 @@ import { messaging } from "./context/Firebase";
 import { getToken } from "firebase/messaging";
 import videoBg from "./assests/gradient-1.mp4"
 import BgGradient from "./assests/g3.jpg"
+import Home2 from "./pages/Home2";
 
 function App() {
 
@@ -37,7 +38,7 @@ function App() {
       {/* <img src={BgGradient} className="fixed z-[-1] object-cover h-[100vh] w-full"/> */}
       <Nav />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home2 />} />
         <Route path="/login" element={<LoginUser />} />
         <Route path="/register" element={<RegisterUser />} />
         <Route path="/book/list" element={<List />} />
