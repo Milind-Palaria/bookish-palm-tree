@@ -4,7 +4,7 @@ import logo from "../assests/bookish-logo.png"
 
 const Nav = () => {
   return (
-    <div className='fixed w-full top-0 px-[5rem] flex justify-center backdrop-blur-md bg-white/0 text-white'>
+    <div className='fixed w-full top-0 p-2 flex justify-center backdrop-blur-md bg-white/0 text-white'>
       {/* <NavLink to="/"><img src={logo} alt="logo" className=' w-24'/></NavLink> */}
       {/* <NavLink to="/">
         <div>
