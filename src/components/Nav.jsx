@@ -4,14 +4,14 @@ import logo from "../assests/bookish-logo.png"
 
 const Nav = () => {
   return (
-    <div className='fixed w-full top-0 px-[5rem] bg-[#52057B]/70 text-yellow-400 flex justify-between backdrop-blur-md'>
+    <div className='fixed w-full top-0 px-[5rem] flex justify-center backdrop-blur-md bg-white/0 text-white'>
       {/* <NavLink to="/"><img src={logo} alt="logo" className=' w-24'/></NavLink> */}
-      <NavLink to="/">
+      {/* <NavLink to="/">
         <div>
         <h1>bookish</h1>
         <h2>Palm tree</h2>
         </div>
-        </NavLink>
+        </NavLink> */}
 
       <div className='flex gap-10'>
 
