@@ -13,13 +13,13 @@ const Home2 = () => {
     return (
         <div>
             {/* <h1 className="text-8xl mb-10">main</h1> */}
-            <div className="h-screen w-screen overflow-x-hidden bg-black text-white  lobster-regular flex justify-around underline">
+            <div className="h-screen w-screen overflow-x-hidden bg-black text-white  lobster-regular flex justify-around underline overflow-y-hidden">
                 {/* <div className="flex flex-col w-1/2 items-center">
                 <h1 className=" translate-y-5">Bookish</h1>
                 <h1 className=" translate-y-5">Palm</h1>
                 <h1 className=" translate-y-5 ">Tree .</h1>
                 </div> */}
-                <div className=" w-full h-full mt-4">
+                <div className=" w-full h-full mt-4  overflow-y-hidden">
 
                     <h1 className="absolute mix-blend-normal text-nowrap left-0 right-0 text-center text-[8rem] translate-y-[-1rem]">Bookish</h1>
                     
