@@ -35,7 +35,7 @@ const Home2 = () => {
         },{
  
           duration:2,
-          opacity:0.6,
+          opacity:0.4,
           ease:'power1.in',
           stagger:{
             amount:1,
@@ -54,15 +54,15 @@ const Home2 = () => {
                 </div> */}
                 <div className=" w-full h-full mt-4  overflow-y-hidden">
 
-                    <h1 className="absolute mix-blend-normal text-nowrap left-0 right-0 text-center text-[8rem] mt-[-10] hululu">Bookish</h1>
+                    <h1 className="absolute mix-blend-normal text-nowrap left-0 right-0 text-center text-[8rem] mt-[-10] hululu">— Bookish —</h1>
                     
                     <img src="book1.jpg" alt="book" className=" w-[80%] h-1/4 m-auto object-cover opacity-50 img-gsap"/>
 
-                    <h1 className="absolute mix-blend-normal text-nowrap left-0 right-0 text-center text-[8rem] mt-7 hululu">Palm</h1>
+                    <h1 className="absolute mix-blend-normal text-nowrap left-0 right-0 text-center text-[8rem] mt-7 hululu">— Palm — </h1>
                     
                     <img src="book2.jpg" alt="book"  className=" w-[80%] h-1/4  m-auto mt-10 object-cover opacity-50 img-gsap" />
                     
-                    <h1 className="absolute mix-blend-normal left-0 right-0 text-center text-[8rem] mt-5 hululu">tree</h1>
+                    <h1 className="absolute mix-blend-normal left-0 right-0 text-center text-[8rem] mt-5 hululu">— tree — </h1>
                     
                     <img src="book3.jpg" alt="book"  className=" w-[80%] h-1/4  m-auto mt-10 object-cover opacity-50 img-gsap"/>
 
