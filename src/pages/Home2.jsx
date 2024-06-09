@@ -14,12 +14,13 @@ const Home2 = () => {
     }, [])
     useGSAP(()=>{
         gsap.fromTo('.hululu',{
-          y:20,
-          opacity:0
+          opacity:0,
+          
         },{
           y:0,
           duration:1,
           opacity:1,
+          delay:2,
           ease:'power1.in',
           stagger:{
             amount:1,
@@ -28,13 +29,13 @@ const Home2 = () => {
       },[]);
 
     useGSAP(()=>{
-        gsap.fromTo('.hululu',{
-          y:20,
+        gsap.fromTo('.img-gsap',{
+  
           opacity:0
         },{
-          y:0,
-          duration:1,
-          opacity:1,
+ 
+          duration:2,
+          opacity:0.6,
           ease:'power1.in',
           stagger:{
             amount:1,
@@ -55,15 +56,15 @@ const Home2 = () => {
 
                     <h1 className="absolute mix-blend-normal text-nowrap left-0 right-0 text-center text-[8rem] mt-[-10] hululu">Bookish</h1>
                     
-                    <img src="book1.jpg" alt="book" className=" w-[80%] h-1/4 m-auto object-cover opacity-50"/>
+                    <img src="book1.jpg" alt="book" className=" w-[80%] h-1/4 m-auto object-cover opacity-50 img-gsap"/>
 
                     <h1 className="absolute mix-blend-normal text-nowrap left-0 right-0 text-center text-[8rem] mt-7 hululu">Palm</h1>
                     
-                    <img src="book2.jpg" alt="book"  className=" w-[80%] h-1/4  m-auto mt-10 object-cover opacity-50" />
+                    <img src="book2.jpg" alt="book"  className=" w-[80%] h-1/4  m-auto mt-10 object-cover opacity-50 img-gsap" />
                     
                     <h1 className="absolute mix-blend-normal left-0 right-0 text-center text-[8rem] mt-5 hululu">tree</h1>
                     
-                    <img src="book3.jpg" alt="book"  className=" w-[80%] h-1/4  m-auto mt-10 object-cover opacity-50"/>
+                    <img src="book3.jpg" alt="book"  className=" w-[80%] h-1/4  m-auto mt-10 object-cover opacity-50 img-gsap"/>
 
                 </div>
             </div>
