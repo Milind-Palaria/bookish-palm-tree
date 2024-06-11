@@ -68,7 +68,7 @@ const Home2 = () => {
 
                 </div>
             </div>
-            <div className="flex gap-10 items-center justify-center flex-wrap">
+            <div className="flex gap-10 items-center justify-center flex-wrap bg-black">
                 {
                     books && books.map((book) => (
                         <Card link={`/book/view/${book.id}`} key={book.id} id={book.id} {...book.data()} />
