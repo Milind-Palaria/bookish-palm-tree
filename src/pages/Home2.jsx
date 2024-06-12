@@ -42,14 +42,31 @@ const Home2 = () => {
         })
       },[]);
       useGSAP(()=>{
-        gsap.to('.img-gsap',{
+        gsap.to('.text-gsap',{
           duration:1,
-          width:"100%",
+          filter:'blur(10px)',
+          color:'#000',
           scrollTrigger:{
             trigger:'.text-gsap',
-            start:"top top",
+            start:"+=1",
+            scrub:1
+          },
+          ease:'power1.in',
+          stagger:{
+            amount:1,
+          }
+        })
+      },[{scope:scrollRef}]);
+      useGSAP(()=>{
+        gsap.to('.img-gsap',{
+          duration:10,
+          width:"100%",
+          filter:'blur(10px)',
+          scrollTrigger:{
+            trigger:'.img-gsap',
+            start:"+=1",
             markers:true,
-            
+            scrub:1
           },
           ease:'power1.in',
           stagger:{
