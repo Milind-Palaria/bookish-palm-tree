@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
-import { useFirebase } from "../context/Firebase"
+
 import Card from "../components/Card";
 import { gsap } from "gsap/dist/gsap";
 import { useGSAP } from "@gsap/react/dist";
 import {ScrollTrigger} from 'gsap/all'
 import { useRef } from "react";
+import CurrentBooks from "./CurrentBooks";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,11 +13,7 @@ const Home2 = () => {
 
   const scrollRef=useRef();
 
-    const firebase = useFirebase();
-    const [books, setBooks] = useState("")
-    useEffect(() => {
-        firebase.listAllBooks().then((books) => setBooks(books.docs))
-    }, [])
+
     useGSAP(()=>{
         gsap.to('.text-gsap',{
           y:0,
@@ -46,6 +42,7 @@ const Home2 = () => {
           duration:1,
           filter:'blur(10px)',
           color:'#000',
+          letterSpacing:'30px',
           scrollTrigger:{
             trigger:'.text-gsap',
             start:"+=1",
@@ -58,7 +55,7 @@ const Home2 = () => {
         })
       },[{scope:scrollRef}]);
       useGSAP(()=>{
-        gsap.to('.img-gsap',{
+        gsap.to('.img1-gsap',{
           duration:10,
           width:"100%",
           filter:'blur(10px)',
@@ -74,7 +71,40 @@ const Home2 = () => {
           }
         })
       },[{scope:scrollRef}]);
-
+      useGSAP(()=>{
+        gsap.to('.img2-gsap',{
+          duration:10,
+          width:"100%",
+          filter:'blur(10px)',
+          scrollTrigger:{
+            trigger:'.img-gsap',
+            start:"+=1",
+            markers:true,
+            scrub:1
+          },
+          ease:'power1.in',
+          stagger:{
+            amount:1,
+          }
+        })
+      },[{scope:scrollRef}]);
+      useGSAP(()=>{
+        gsap.to('.img3-gsap',{
+          duration:10,
+          width:"100%",
+          filter:'blur(10px)',
+          scrollTrigger:{
+            trigger:'.img-gsap',
+            start:"+=1",
+            markers:true,
+            scrub:1
+          },
+          ease:'power1.in',
+          stagger:{
+            amount:1,
+          }
+        })
+      },[{scope:scrollRef}]);
     return (
         <div>
             <div className="h-screen w-screen overflow-x-hidden bg-black text-white  lobster-regular flex justify-around underline overflow-y-hidden">
@@ -87,27 +117,20 @@ const Home2 = () => {
 
                     <h1 className="absolute mix-blend-normal text-nowrap left-0 right-0 text-center text-[8rem] mt-[-10] text-gsap opacity-0">— Bookish —</h1>
                     
-                    <img src="book1.jpg" alt="book" className=" w-[80%] h-1/4 m-auto object-cover  img-gsap opacity-0"/>
+                    <img src="book1.jpg" alt="book" className=" w-[80%] h-1/4 m-auto object-cover img-gsap  img1-gsap opacity-0"/>
 
                     <h1 className="absolute mix-blend-normal text-nowrap left-0 right-0 text-center text-[8rem] mt-7 text-gsap opacity-0">— Palm — </h1>
                     
-                    <img src="book2.jpg" alt="book"  className=" w-[80%] h-1/4  m-auto mt-10 object-cover img-gsap opacity-0" />
+                    <img src="book2.jpg" alt="book"  className=" w-[80%] h-1/4  m-auto mt-10 object-cover img-gsap img2-gsap opacity-0" />
                     
                     <h1 className="absolute mix-blend-normal left-0 right-0 text-center text-[8rem] mt-5 text-gsap opacity-0">— tree — </h1>
                     
-                    <img src="book3.jpg" alt="book"  className=" w-[80%] h-1/4  m-auto mt-10 object-cover img-gsap opacity-0"/>
+                    <img src="book3.jpg" alt="book"  className=" w-[80%] h-1/4  m-auto mt-10 object-cover img-gsap img3-gsap opacity-0"/>
 
                 </div>
             </div>
-            <div className="flex gap-10 items-center justify-center flex-wrap bg-black">
-                {
-                    books && books.map((book) => (
-                        <Card link={`/book/view/${book.id}`} key={book.id} id={book.id} {...book.data()} />
-                    ))
-                }
-            </div>
-            <div>
-            </div>
+                <CurrentBooks/>
+           
         </div>
     )
 }
