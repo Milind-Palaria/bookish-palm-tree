@@ -46,7 +46,7 @@ const Card = (props) => {
 
 
     return (
-        <div ref={scrollRef}>
+        <div className=' w-full' ref={scrollRef}>
             <div className="swiper-slide">
                 <img src={url} />
                 <div className="overlay">
