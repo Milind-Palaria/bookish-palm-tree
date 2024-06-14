@@ -2,6 +2,15 @@ import React, { useEffect, useState } from 'react'
 import { useFirebase } from '../context/Firebase'
 import {useNavigate} from "react-router-dom"
 
+import { gsap } from "gsap/dist/gsap";
+import { useGSAP } from "@gsap/react/dist";
+import {ScrollTrigger} from 'gsap/all'
+import { useRef } from "react";
+
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.registerPlugin(useGSAP);
+
 const Card = (props) => {
     const firebase=useFirebase()
     const navigate= useNavigate()
@@ -9,9 +18,37 @@ const Card = (props) => {
     useEffect(() => {
       firebase.getImageURL(props.imageURL).then((url)=>setURL(url));
     }, [])
+
+    
+  const scrollRef=useRef();
+
+  useGSAP(()=>{
+    const boxes=gsap.utils.toArray(scrollRef.current.children);
+
+    boxes.forEach((box)=>{
+        gsap.fromTo(box,{
+          scale:0,
+          opacity:0,
+        },{
+            scale:1,
+            opacity:1,
+            scrollTrigger:{
+              trigger:box,
+              start:"top bottom",
+              end:"top 50%",
+              scrub:1
+            },
+            ease:"power1.inOut"
+          }
+    )
+      })
+    },[{scope:scrollRef}]);
+
     
     return (
-        <div  className="flex flex-col flex-wrap gap-2 items-center justify-center outline-dashed p-10">
+        <div  ref={scrollRef}>
+
+        <div  className="flex flex-wrap gap-2 items-center justify-center p-10">
             <img src={url} className=' h-40 w-40'/>
             <h1>Book Details</h1>
             <h2>{props.name}</h2>
@@ -20,6 +57,7 @@ const Card = (props) => {
             <h3>ISBN Number: {props.isbn}</h3>
             <p>Price: {props.price}</p>
             <button onClick={e=>navigate(props.link)}>Explore</button>
+        </div>
         </div>
     )
 }

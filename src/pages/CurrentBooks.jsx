@@ -13,29 +13,29 @@ gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(useGSAP);
 
 const CurrentBooks = () => {
-  const scrollRef=useRef();
+  // const scrollRef=useRef();
 
-  useGSAP(()=>{
-    const boxes=gsap.utils.toArray(scrollRef.current.children);
+  // useGSAP(()=>{
+  //   const boxes=gsap.utils.toArray(scrollRef.current.children);
 
-    boxes.forEach((box)=>{
-        gsap.fromTo(box,{
-          scale:0,
-          opacity:0,
-        },{
-            scale:1,
-            opacity:1,
-            scrollTrigger:{
-              trigger:box,
-              start:"top bottom",
-              end:"top 50%",
-              scrub:1
-            },
-            ease:"power1.inOut"
-          }
-    )
-      })
-    },[{scope:scrollRef}]);
+  //   boxes.forEach((box)=>{
+  //       gsap.fromTo(box,{
+  //         scale:0,
+  //         opacity:0,
+  //       },{
+  //           scale:1,
+  //           opacity:1,
+  //           scrollTrigger:{
+  //             trigger:box,
+  //             start:"top bottom",
+  //             end:"top 50%",
+  //             scrub:1
+  //           },
+  //           ease:"power1.inOut"
+  //         }
+  //   )
+  //     })
+  //   },[{scope:scrollRef}]);
 
     const firebase = useFirebase();
     const [books, setBooks] = useState("")
@@ -44,7 +44,7 @@ const CurrentBooks = () => {
     }, [])
   return (
     <div>
-         <div className="flex gap-20 items-center justify-center flex-wrap bg-black text-white "  ref={scrollRef}>
+         <div className="flex gap-20 items-center justify-center flex-wrap bg-black text-white "  >
                 {
                     books && books.map((book) => (
                         <Card link={`/book/view/${book.id}`} key={book.id} id={book.id} {...book.data()} />
