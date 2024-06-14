@@ -1,5 +1,4 @@
 
-import Card from "../components/Card";
 import { gsap } from "gsap/dist/gsap";
 import { useGSAP } from "@gsap/react/dist";
 import {ScrollTrigger} from 'gsap/all'
