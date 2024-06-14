@@ -35,7 +35,7 @@ const Card = (props) => {
                 scrollTrigger: {
                     trigger: box,
                     start: "top bottom",
-                    end: "top 50%",
+                    end: "top 80%",
                     scrub: 1
                 },
                 ease: "power1.inOut"
@@ -46,9 +46,9 @@ const Card = (props) => {
 
 
     return (
-        <div className=' w-full' ref={scrollRef}>
+        <div className='p-10' ref={scrollRef}>
             <div className="swiper-slide">
-                <img src={url} />
+                <img src={url} className='w-[30rem] h-[30rem]'/>
                 <div className="overlay">
                     <h1>Walking Tour in Florence</h1>
                     <p>
