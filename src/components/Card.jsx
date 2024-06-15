@@ -47,10 +47,10 @@ const Card = (props) => {
 
     return (
         <div className='p-10' ref={scrollRef}>
-            <div className="swiper-slide">
+            <div className="swiper-slide lobster-regular">
                 <img src={url} className='w-[30rem] h-[30rem]'/>
                 <div className="overlay">
-                    <h1>Walking Tour in Florence</h1>
+                    <h1>{props.name}</h1>
                     <p>
                         Discover the fascinating beauty of this historic city by
                         strolling through the rich cultural tapestry that makes Florence
