@@ -56,6 +56,10 @@ const Card = (props) => {
                         strolling through the rich cultural tapestry that makes Florence
                         a timeless destination.
                     </p>
+                    <h3>Sold By: {props.displayName}</h3>
+            <h3>ISBN Number: {props.isbn}</h3>
+            <p>Price: {props.price}</p>
+            <button onClick={e=>navigate(props.link)}>Explore</button>
 
                 </div>
             </div>
