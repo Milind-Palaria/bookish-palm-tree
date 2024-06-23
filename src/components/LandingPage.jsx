@@ -100,7 +100,7 @@ const LandingPage = () => {
     })
   }, [{ scope: scrollRef }]);
   return (
-    <div className="h-screen w-screen flex justify-around underline overflow-y-hidden">
+    <div className="h-screen w-screen flex justify-around underline">
         {/* <div className="flex flex-col w-1/2 items-center">
                 <h1 className=" translate-y-5">Bookish</h1>
                 <h1 className=" translate-y-5">Palm</h1>

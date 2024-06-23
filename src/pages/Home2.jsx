@@ -5,7 +5,7 @@ import BestSellers from "../components/BestSellers";
 const Home2 = () => {
 
   return (
-    <div className="overflow-x-hidden bg-black text-white  lobster-regular ">
+    <div className="overflow-x-hidden  overflow-y-hidden bg-black text-white  lobster-regular ">
       <LandingPage/>
       <HeroSection/>
       <BestSellers/>
