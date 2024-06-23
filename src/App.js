@@ -1,3 +1,4 @@
+'use client';
 import { Route, Routes } from "react-router-dom";
 import RegisterUser from "./pages/RegisterUser";
 import LoginUser from "./pages/LoginUser";
@@ -31,6 +32,15 @@ function App() {
   // useEffect(() => {
   //   requestPermission()
   // }, [])
+  useEffect( () => {
+    (
+      async () => {
+          const LocomotiveScroll = (await import('locomotive-scroll')).default
+          const locomotiveScroll = new LocomotiveScroll();
+      }
+    )()
+  }, [])
+
 
   return (
     <div className="m-0">
