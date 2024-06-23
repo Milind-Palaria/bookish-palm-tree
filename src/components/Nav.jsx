@@ -21,7 +21,7 @@ useGSAP(()=>{
 },[]);
 
   return (
-    <div className=' sticky bg-black w-full top-0 p-2 flex justify-center backdrop-blur-md text-white z-50'>
+    <div className=' bg-black w-full top-0 p-2 flex justify-center backdrop-blur-md text-white z-50'>
       {/* <NavLink to="/"><img src={logo} alt="logo" className=' w-24'/></NavLink> */}
       {/* <NavLink to="/">
         <div>
