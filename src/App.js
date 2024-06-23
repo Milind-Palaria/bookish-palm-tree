@@ -1,4 +1,4 @@
-'use client';
+
 import { Route, Routes } from "react-router-dom";
 import RegisterUser from "./pages/RegisterUser";
 import LoginUser from "./pages/LoginUser";
