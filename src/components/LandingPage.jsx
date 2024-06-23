@@ -59,7 +59,6 @@ const LandingPage = () => {
       scrollTrigger: {
         trigger: '.img-gsap',
         start: "+=1",
-        markers: true,
         scrub: 1
       },
       ease: 'power1.in',
@@ -76,7 +75,6 @@ const LandingPage = () => {
       scrollTrigger: {
         trigger: '.img-gsap',
         start: "+=1",
-        markers: true,
         scrub: 1
       },
       ease: 'power1.in',
@@ -93,7 +91,6 @@ const LandingPage = () => {
       scrollTrigger: {
         trigger: '.img-gsap',
         start: "+=1",
-        markers: true,
         scrub: 1
       },
       ease: 'power1.in',
