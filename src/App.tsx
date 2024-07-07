@@ -1,46 +1,21 @@
+import React, { useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Nav from './components/Nav';
+import Home2 from './pages/Home2';
+import LoginUser from './pages/LoginUser';
+import RegisterUser from './pages/RegisterUser';
+import List from './pages/List';
+import BookDetails from './pages/BookDetails';
+import ViewOrders from './pages/ViewOrders';
+import ViewOrderDetails from './pages/ViewOrderDetails';
 
-import { Route, Routes } from "react-router-dom";
-import RegisterUser from "./pages/RegisterUser";
-import LoginUser from "./pages/LoginUser";
-import List from "./pages/List";
-import Home from "./pages/Home";
-import Nav from "./components/Nav";
-import BookDetails from "./pages/BookDetails";
-import ViewOrders from "./pages/ViewOrders";
-import ViewOrderDetails from "./pages/ViewOrderDetails";
-import { useEffect } from "react";
-import { messaging } from "./context/Firebase";
-import { getToken } from "firebase/messaging";
-import videoBg from "./assests/gradient-1.mp4"
-import BgGradient from "./assests/g3.jpg"
-import Home2 from "./pages/Home2";
-
-function App() {
-
-  // async function requestPermission() {
-  //   const permission = await Notification.requestPermission()
-  //   if (permission === 'granted') {
-  //     //Generate TOken
-  //     const token = await getToken(messaging,{vapidKey:"BP44b81S2bMSL6fFe_BSX0GdBfheRq3M_FNg30KR8Sy7xin4E5SF2bJqHudtkuucRur45tCasns_Jo1CRMNniss"})
-  //     console.log("Token Generated", token)
-  //   }
-  //   else if (permission === 'denied') {
-  //     alert('You have blocked notifications')
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   requestPermission()
-  // }, [])
-  useEffect( () => {
-    (
-      async () => {
-          const LocomotiveScroll = (await import('locomotive-scroll')).default
-          const locomotiveScroll = new LocomotiveScroll();
-      }
-    )()
-  }, [])
-
+const App: React.FC = () => {
+  useEffect(() => {
+    (async () => {
+      const LocomotiveScroll = (await import('locomotive-scroll')).default;
+      const locomotiveScroll = new LocomotiveScroll();
+    })();
+  }, []);
 
   return (
     <div className="m-0">
@@ -58,5 +33,6 @@ function App() {
       </Routes>
     </div>
   );
-}
+};
+
 export default App;
