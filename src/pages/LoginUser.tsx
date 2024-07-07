@@ -1,37 +1,47 @@
-import React, { useState ,useEffect} from 'react'
-import { useFirebase } from '../context/Firebase'
+import React, { useState, useEffect, ChangeEvent } from 'react';
+import { useFirebase } from '../context/Firebase';
 import { useNavigate } from 'react-router-dom';
 
-
-const LoginUser = () => {
+const LoginUser: React.FC = () => {
     const firebase = useFirebase();
-    const navigate=useNavigate();
+    const navigate = useNavigate();
 
-    const [email, setEmail] = useState('');
-    const [pass, setPass] = useState('');
+    const [email, setEmail] = useState<string>('');
+    const [pass, setPass] = useState<string>('');
+
     const createUser = async () => {
-        const result = await firebase.signInUser(email, pass)
-        //    console.log("SUCCESS");
-           console.log(result)
-    }
+        if (firebase) {
+            const result = await firebase.signInUser(email, pass);
+            console.log(result);
+        }
+    };
+
     useEffect(() => {
-      if(firebase.isLoggedIn){
-        navigate('/');
-      }
-    }, [firebase,navigate])
-    
-    // console.log(firebase)
-    // console.log(firebase);
+        if (firebase?.isLoggedIn) {
+            navigate('/');
+        }
+    }, [firebase, navigate]);
+
+    const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setEmail(e.target.value);
+    };
+
+    const handlePassChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setPass(e.target.value);
+    };
+
     return (
-        <div className=' ml-10 mt-10'>
-          <h1 className=" text-8xl">Login</h1>
-            <p>email</p><input type="text" placeholder='enter email' onChange={(e) => { setEmail(e.target.value) }} value={email} />
+        <div className='ml-10 mt-10'>
+            <h1 className="text-8xl">Login</h1>
+            <p>Email</p>
+            <input type="text" placeholder='Enter email' onChange={handleEmailChange} value={email} />
             <br />
-            <p>password</p><input type="password" placeholder='enter password' onChange={(e) => { setPass(e.target.value) }} value={pass} />
+            <p>Password</p>
+            <input type="password" placeholder='Enter password' onChange={handlePassChange} value={pass} />
             <br />
             <button onClick={createUser}>Login User</button>
         </div>
-    )
+    );
 }
 
-export default LoginUser
+export default LoginUser;

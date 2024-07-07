@@ -1,29 +1,43 @@
-import React, { useState } from 'react'
-import { useFirebase } from '../context/Firebase'
+import React, { useState, ChangeEvent } from 'react'
+import { useFirebase } from '../context/Firebase';
 
+const RegisterUser: React.FC = () => {
+    const [email, setEmail] = useState<string>('');
+    const [pass, setPass] = useState<string>('');
 
-const RegisterUser = () => {
-    const [email, setEmail] = useState('');
-    const [pass, setPass] = useState('');
+    const firebase = useFirebase();
 
     const createUser = async () => {
-       const result= await firebase.signUpUser(email, pass)
-       console.log("SUCCESS",result);
-    }
+        if (firebase) {
+            const result = await firebase.signUpUser(email, pass);
+            console.log("SUCCESS", result);
+        }
+    };
+
     const createUserWithGoogle = async () => {
-        const result= await firebase.signInWithGoogle()
-        console.log("SUCCESS",result);
-     }
- 
-    const firebase = useFirebase();
-    // console.log(firebase);
+        if (firebase) {
+            const result = await firebase.signInWithGoogle();
+            console.log("SUCCESS", result);
+        }
+    };
+
+    const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setEmail(e.target.value);
+    };
+
+    const handlePassChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setPass(e.target.value);
+    };
+
     return (
-        <div className=' ml-10 mt-10'>
-            <h1 className=" text-8xl">register</h1>
+        <div className='ml-10 mt-10'>
+            <h1 className="text-8xl">Register</h1>
             <br />
-            <p>email</p><input type="text" placeholder='enter email' onChange={(e) => { setEmail(e.target.value) }} value={email} />
+            <p>Email</p>
+            <input type="text" placeholder='Enter email' onChange={handleEmailChange} value={email} />
             <br />
-            <p>password</p><input type="password" placeholder='enter password' onChange={(e) => { setPass(e.target.value) }} value={pass} />
+            <p>Password</p>
+            <input type="password" placeholder='Enter password' onChange={handlePassChange} value={pass} />
             <br />
             <button onClick={createUser}>Create User</button>
             <hr />
@@ -31,7 +45,7 @@ const RegisterUser = () => {
             <hr />
             <button onClick={createUserWithGoogle}>Google</button>
         </div>
-    )
+    );
 }
 
-export default RegisterUser
+export default RegisterUser;
