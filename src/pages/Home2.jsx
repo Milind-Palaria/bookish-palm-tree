@@ -9,7 +9,7 @@ const Home2 = () => {
       <LandingPage/>
       <HeroSection/>
       <BestSellers/>
-      <CurrentBooks />
+      {/* <CurrentBooks /> */}
 
     </div>
   )

@@ -37,8 +37,8 @@ const CurrentBooks = () => {
   //     })
   //   },[{scope:scrollRef}]);
 
-    const firebase = useFirebase();
-    const [books, setBooks] = useState("")
+  const [books, setBooks] = useState("")
+  const firebase = useFirebase();
     useEffect(() => {
         firebase.listAllBooks().then((books) => setBooks(books.docs))
     }, [])
