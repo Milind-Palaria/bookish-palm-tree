@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Card, { CardProps } from './Card';
 import { useFirebase } from '../context/Firebase';
 import { DocumentData, QuerySnapshot, QueryDocumentSnapshot } from 'firebase/firestore';
+import { ThreeDCardDemo } from './3dCardUse';
 
 const BestSellers: React.FC = () => {
   const firebase = useFirebase();
@@ -25,6 +26,7 @@ const BestSellers: React.FC = () => {
           />
         ))}
       </div>
+      <ThreeDCardDemo/>
     </div>
   );
 };
