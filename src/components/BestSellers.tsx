@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Card, { CardProps } from './Card';
 import { useFirebase } from '../context/Firebase';
 import { DocumentData, QuerySnapshot, QueryDocumentSnapshot } from 'firebase/firestore';
-import { ThreeDCardDemo } from './3dCardUse';
+import ThreeDCardDemo, { ThreeDProps } from './3dCardUse';
 
 const BestSellers: React.FC = () => {
   const firebase = useFirebase();
@@ -18,17 +18,23 @@ const BestSellers: React.FC = () => {
     <div>
       <div className="flex gap-20 items-center justify-center flex-wrap bg-black text-white">
         {books.map((book) => (
-          <Card
+          <ThreeDCardDemo
             key={book.id}
-            {...book.data() as CardProps}
+            {...book.data() as ThreeDProps}
             link={`/book/view/${book.id}`}
             id={book.id}
           />
         ))}
       </div>
-      <ThreeDCardDemo/>
     </div>
   );
 };
 
 export default BestSellers;
+
+// <Card
+//   key={book.id}
+//   {...book.data() as CardProps}
+//   link={`/book/view/${book.id}`}
+//   id={book.id}
+// />
